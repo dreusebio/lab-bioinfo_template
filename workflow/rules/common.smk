@@ -1,24 +1,15 @@
 import pandas as pd
-from pathlib import Path
 
 SAMPLESHEET = config["paths"]["samplesheet"]
 samples_df = pd.read_csv(SAMPLESHEET, sep="\t", dtype=str)
+SAMPLES = samples_df["sample_id"].tolist()
 
-def outdir():
-    return config["paths"]["outdir"]
-
-def logdir():
-    return config["paths"]["logdir"]
-
-def assay():
-    return config["project"]["assay"]
-
-def apath(*parts):
-    return str(Path(outdir()) / assay() / Path(*parts))
+def outpath(*parts):
+    return "/".join([config["paths"]["outdir"], config["project"]["assay"], *parts])
 
 rule make_dirs:
     output:
-        touch(apath("_DIRS_CREATED"))
+        touch(outpath("_DIRS_CREATED"))
     shell:
         r"
         mkdir -p {config[paths][outdir]}/{config[project][assay]}

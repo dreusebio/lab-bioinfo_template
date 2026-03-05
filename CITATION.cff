@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it."
-title: "LAB_SNAKEMAKE_TEMPLATE"
+title: "PROJECT_NAME"
 type: software
 authors:
   - family-names: "Lab"
