@@ -1,15 +1,13 @@
 # PROJECT_NAME
 
-Reproducible bioinformatics analysis for **[PROJECT_DESCRIPTION]**.
 
-This repository follows the **lab reproducibility standard** and is designed to work across multiple computing environments (local workstation or HPC cluster).
+Reproducible bioinformatics analysis for **[short project description]**.
 
-The project may use:
+**Data type(s):** [WGBS / snRNA-seq / WGS / multi-omics]  
+**Study / cohort:** [name]  
+**Genome build:** [hg38/hg19/etc]  
+**Primary outputs:** [DMRs/DEGs/modules/figures/etc]
 
-* Snakemake workflows
-* SLURM job scripts
-* R / Python analysis scripts
-* notebooks for exploratory analysis
 
 All code, metadata, and configuration are version-controlled to ensure the analysis can be reproduced.
 
