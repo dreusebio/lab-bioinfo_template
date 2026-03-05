@@ -1,0 +1,12 @@
+type: object
+required:
+  - project
+  - paths
+  - external
+  - wgbs
+properties:
+  project:
+    type: object
+    required: [id, assay, genome_build]
+  wgbs:
+    type: object

@@ -1,0 +1,53 @@
+project:
+  id: "LAB_SNAKEMAKE_TEMPLATE"
+  assay: "wgbs"   # wgbs | snrna | wgs
+  genome_build: "hg38"
+
+paths:
+  samplesheet: "config/samples.tsv"
+  units: "config/units.tsv"       # optional
+  outdir: "results"
+  logdir: "logs"
+
+external:
+  epigenerator_dir: "external/epigenerator"
+  snrna_repo_dir: "external/PCB_mouse_snRNAseq"
+
+resources:
+  default_threads: 4
+  default_mem_mb: 16000
+  default_time_min: 240
+
+wgbs:
+  preprocess:
+    engine: "epigenerator"        # currently only epigenerator supported
+    profile: "workflow/profiles/slurm"
+    jobs: 100
+    # Where epigenerator outputs should be copied/synced into:
+    standardized_outdir: "results/wgbs/epigenerator"
+
+  downstream:
+    run_comethyl: true
+    run_dmrichr: false
+
+  # Inputs to downstream analysis
+  coldata_xlsx: "metadata/coldata.xlsx"  # create this per project
+
+comethyl:
+  # Where to write results
+  outdir: "results/wgbs/comethyl"
+  params:
+    covMin: 4
+    methSD: 0.08
+
+dmrichr:
+  outdir: "results/wgbs/dmrichr"
+  params:
+    maxPerms: 100
+
+snrna:
+  run_external_module: false
+  outdir: "results/snrna"
+
+wgs:
+  outdir: "results/wgs"
