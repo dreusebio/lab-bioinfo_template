@@ -35,8 +35,6 @@ renv/staging/
 *.docx
 *.pptx
 *.xlsx
-*.csv
-*.tsv
 *.zip
 *.tar.gz
 *.rds
@@ -52,9 +50,6 @@ renv/staging/
 *.bam
 *.bai
 *.vcf
-*.fasta
-*.fastq
-*.fq
 *.RData
 *.gif
 *.ico
